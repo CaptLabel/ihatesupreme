@@ -1,0 +1,33 @@
+{% extends "@Admin/admin.layout.html.twig" %}
+{% block body %}
+    <table class="u-full-width">
+        <thead>
+        <tr>
+            <th>text</th>
+            <th>modify</th>
+            <th>delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if listIntro|length == 0 %}
+            <tr>
+                <td class="a-c" colspan="8">il n'y a pas de phrase d'introduction</td>
+            </tr>
+        {% else %}
+            {% for intro in listIntro %}
+                <tr class="line-info">
+                    <td>{{ intro.text }}</td>
+                    <td><a href="{{ path('admin_introduction_update', {'id': intro.id}) }}">U</a></td>
+                    <td><a href="{{ path('admin_introduction_remove', {'id': intro.id}) }}">X</a></td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+    <div class="columns twelve a-c">
+        <a href="{{ path('admin_introduction_add') }}">ajout.</a>
+    </div>
+{% endblock %}
+{% block linkscript %}
+
+{% endblock %}

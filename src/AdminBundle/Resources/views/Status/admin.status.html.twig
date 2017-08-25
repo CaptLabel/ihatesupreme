@@ -1,0 +1,33 @@
+{% extends "@Admin/admin.layout.html.twig" %}
+{% block body %}
+    <table class="u-full-width">
+        <thead>
+        <tr>
+            <th>status</th>
+            <th>modify</th>
+            <th>delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if listStatus|length == 0 %}
+            <tr>
+                <td class="a-c" colspan="8">il n'y a pas de status</td>
+            </tr>
+        {% else %}
+            {% for status in listStatus %}
+                <tr class="line-info">
+                    <td>{{ status.state }}</td>
+                    <td><a href="{{ path('admin_status_update', {'id': status.id}) }}">U</a></td>
+                    <td>{% if( status.id == 1 ) %}&nbsp;{% else %}<a href="{{ path('admin_status_remove', {'id': status.id}) }}">X</a>{% endif %}</td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+    <div class="columns twelve a-c">
+        <a href="{{ path('admin_status_add') }}">ajout.</a>
+    </div>
+{% endblock %}
+{% block linkscript %}
+
+{% endblock %}

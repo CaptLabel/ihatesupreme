@@ -1,0 +1,26 @@
+{% extends "@Admin/admin.layout.html.twig" %}
+{% block body %}
+    <ul class="listHome">
+        <li>
+            <a href="{{ path('admin_serie') }}">gestion serie.</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_photo') }}">gestion photo.</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_introduction') }}">gestion intro.</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_freedom') }}">gestion freedom.</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_purchase') }}">gestion commande.</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_loveyou') }}">gestion love you.</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_status') }}">gestion status</a>
+        </li>
+    </ul>
+{% endblock %}

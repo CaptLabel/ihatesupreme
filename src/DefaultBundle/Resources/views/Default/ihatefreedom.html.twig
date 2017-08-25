@@ -1,0 +1,24 @@
+{% extends "DefaultBundle::layout.html.twig" %}
+{% block titlepage %}
+    i hate freedom of speech.
+{% endblock %}
+{% block body %}
+    {% if edition %}
+        {{ form_start(form, {'attr': {'class': 'form-horizontal', 'autocomplete': 'off'}}) }}
+        {{ form_label(form.text, 'feel free to talk, i’m listening.') }}
+        {{ form_widget(form.text) }}
+        {{ form_errors(form.text) }}
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+    {% else %}
+        <div class="a-c">
+            i hate spammer, merci de repasser demain.
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block link %}
+    {% if edition %}
+    <div id="send_freedom" class="u-pull-right lstyle">envoyer.</div>
+    {% endif %}
+{% endblock %}

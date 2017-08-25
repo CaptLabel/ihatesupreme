@@ -1,0 +1,33 @@
+{% extends "DefaultBundle::layout.html.twig" %}
+{% block body %}
+    <ul class="listHome">
+        <li>
+            <a href="{{ path('default_ihatetoday') }}">i hate today.</a>
+        </li>
+        <li>
+            <a href="{{ path('default_ihateseries') }}">i hate series.</a>
+        </li>
+        <li>
+            <a href="{{ path('default_ihatepurchase') }}">i hate purchase.</a>
+        </li>
+        <li>
+            <a href="{{ path('default_ihatefreedom') }}">i hate freedom of speech.</a>
+        </li>
+        <li>
+            <a href="{{ path('default_iloveyou') }}">i love you.</a>
+        </li>
+    </ul>
+{% endblock %}
+{% block finbody %}
+    {% if intro is not null %}
+    <div id="fade_intro"><span class="text-intro">{{ intro.text }}</span></div>
+    {% endif %}
+{% endblock %}
+{% block link %}
+    <div class="u-pull-left"><a href="{{ path('default_ihatecopyright') }}">copyrights stuff.</a></div>
+{% endblock %}
+{% block linkscript %}
+    {% if intro is not null %}
+    <script src="{{ asset('js/scriptHP.js') }}" type="text/javascript"></script>
+    {% endif %}
+{% endblock %}

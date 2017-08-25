@@ -1,0 +1,27 @@
+input[type="text"], textarea{
+    width: 100%;
+}
+
+button[type="submit"]{
+    margin-top: 15px;
+}
+
+textarea{
+    height: 220px;
+}
+
+.label_title{
+    background: black;
+    text-align: center;
+    color: white;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+label.required{
+    margin-top: 15px;
+}
+
+#add_category{
+    margin-top: 15px;
+}

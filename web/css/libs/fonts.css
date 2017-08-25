@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'tox_typewriterregular';
+    src: url('../fonts/tox_typewriter-webfont.woff2') format('woff2'),
+         url('../fonts/tox_typewriter-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

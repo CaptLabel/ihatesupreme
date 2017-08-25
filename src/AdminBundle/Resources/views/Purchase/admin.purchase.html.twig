@@ -1,0 +1,71 @@
+{% extends "@Admin/admin.layout.html.twig" %}
+{% block body %}
+    <table class="u-full-width">
+        <tbody>
+        {% if listPurchase|length == 0 %}
+            <tr>
+                <td class="a-c" colspan="6">Il n'y a pas encore de commande</td>
+            </tr>
+        {% else %}
+            {% for purchase in listPurchase %}
+                <tr class="line-entete">
+                    <th>nom</th>
+                    <th>prenom</th>
+                    <th>email</th>
+                    <th>adresse</th>
+                    <th>code postal</th>
+                    <th>ville</th>
+                    <th>numéro</th>
+                    <th>date commande</th>
+                </tr>
+                <tr class="line-info">
+                    <td>{{ purchase.lastname }}</td>
+                    <td>{{ purchase.firstname }}</td>
+                    <td>{{ purchase.email }}</td>
+                    <td>{{ purchase.adress }}</td>
+                    <td>{{ purchase.zipCode }}</td>
+                    <td>{{ purchase.city }}</td>
+                    <td>{{ purchase.number }}</td>
+                    <td>{{ purchase.datePurcahse.format('d/m/Y H:i') }}</td>
+                </tr>
+                <tr class="line-info">
+                    <td><b>commande</b></td>
+                    <td colspan="7">
+                        <table class="u-full-width table-buy-list ui-parent-calcul">
+                            <thead>
+                            <tr>
+                                <th>titre</th>
+                                <th>code</th>
+                                <th>price</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for item in purchase.buyList|json_decode %}
+                                <tr>
+                                    <td>{{ item.title }}</td>
+                                    <td>{{ item.code }}</td>
+                                    <td data-price="{{ item.price }}">{{ item.price }} €</td>
+                                </tr>
+                            {% endfor %}
+                                <tr class="line-total">
+                                    <td>&nbsp;</td>
+                                    <td>total</td>
+                                    <td class="ui-total"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>statut</b></td>
+                    <td>{{ purchase.status.state }}</td>
+                    <td colspan="7"><a href="{{ path('admin_purchase_update', {'id': purchase.id}) }}">U</a></td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+{% endblock %}
+{% block linkscript %}
+    <script src="{{ asset('js/script-panier.js') }}"></script>
+{% endblock %}

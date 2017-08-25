@@ -1,0 +1,25 @@
+{% extends "@Admin/admin.layout.html.twig" %}
+{% block body %}
+    <table class="u-full-width">
+        <thead>
+        <tr>
+            <th>envoyé le</th>
+            <th>texte</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if listFreedom|length == 0 %}
+            <tr>
+                <td class="a-c" colspan="2">il n'y a pas de beaux parleurs</td>
+            </tr>
+        {% else %}
+            {% for freedom in listFreedom %}
+                <tr>
+                    <td>{{ freedom.datePost.format('d/m/Y H:i') }}</td>
+                    <td>{{ freedom.text }}</td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+{% endblock %}

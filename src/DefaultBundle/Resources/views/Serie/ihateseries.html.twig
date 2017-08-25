@@ -1,0 +1,23 @@
+{% extends "DefaultBundle::layout.html.twig" %}
+{% block titlepage %}
+    i hate series.
+{% endblock %}
+{% block body %}
+    <div class="container-block-serie">
+    {% if listSerie|length == 0 %}
+        <div class="u-full-width">
+            Il n'y a pas de serie pour le moment :(
+        </div>
+    {% else %}
+        {% for serie in listSerie %}
+            {% set idx = serie.id %}
+            {% if array_photo[idx] is not null  %}
+                <div class="block-serie">
+                    <img width="100%" src="{{ asset(array_photo[idx].webPath) }}" alt="{{ array_photo[idx].name }}" title="{{ array_photo[idx].name }}"/>
+                    <a href="{{ path('default_ihateedito', {'id': serie.id}) }}">{{ serie.name }}</a>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    </div>
+{% endblock %}

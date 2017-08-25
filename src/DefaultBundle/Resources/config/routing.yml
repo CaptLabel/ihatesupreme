@@ -1,0 +1,61 @@
+default_homepage:
+    path:     /
+    defaults: { _controller: DefaultBundle:Default:index }
+
+default_ihatetoday:
+    path:     /ihatetoday
+    defaults: { _controller: DefaultBundle:Default:today }
+
+default_ihateseries:
+    path:     /ihateseries
+    defaults: { _controller: DefaultBundle:Serie:series }
+
+default_ihatepurchase:
+    path:     /ihatepurchase
+    defaults: { _controller: DefaultBundle:Default:purchase }
+
+default_ihatepurchase_conf:
+    path:     /ihatepurchase/conf
+    defaults: { _controller: DefaultBundle:Confirmation:purchase }
+
+default_ihatefreedom:
+    path:     /ihatefreedom
+    defaults: { _controller: DefaultBundle:Default:freedom }
+
+default_ihatefreedom_conf:
+    path:     /ihatefreedom/conf
+    defaults: { _controller: DefaultBundle:Confirmation:freedom }
+
+default_iloveyou:
+    path:     /iloveyou
+    defaults: { _controller: DefaultBundle:Default:love }
+
+default_ihatecopyright:
+    path:     /ihatecopyright
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template:    DefaultBundle:Default:copyrightstuff.html.twig
+
+default_ihateedito:
+    path:     /ihateedito/{id}
+    defaults: { _controller: DefaultBundle:Serie:edito }
+
+default_ihategoing:
+    path:     /ihategoing/{id}
+    defaults: { _controller: DefaultBundle:Serie:going }
+
+default_ihateseriephoto:
+    path:     /ihateserie/{id}/{idp}
+    defaults: { _controller: DefaultBundle:Serie:seriephoto }
+
+panier_add:
+    path:     /panier/add/{id}
+    defaults: { _controller: DefaultBundle:Panier:add }
+
+panier_remove:
+    path:     /panier/remove/{id}
+    defaults: { _controller: DefaultBundle:Panier:remove }
+
+panier_clean:
+    path:     /panier/clean
+    defaults: { _controller: DefaultBundle:Panier:clean }

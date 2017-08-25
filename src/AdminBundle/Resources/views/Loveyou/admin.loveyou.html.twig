@@ -1,0 +1,35 @@
+{% extends "@Admin/admin.layout.html.twig" %}
+{% block body %}
+    <table class="u-full-width">
+        <thead>
+        <tr>
+            <th>text</th>
+            <th>link</th>
+            <th>modify</th>
+            <th>delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if listLove|length == 0 %}
+            <tr>
+                <td class="a-c" colspan="8">il n'y a pas lien</td>
+            </tr>
+        {% else %}
+            {% for intro in listLove %}
+                <tr class="line-info">
+                    <td>{{ intro.text }}</td>
+                    <td>{{ intro.link }}</td>
+                    <td><a href="{{ path('admin_loveyou_update', {'id': intro.id}) }}">U</a></td>
+                    <td><a href="{{ path('admin_loveyou_remove', {'id': intro.id}) }}">X</a></td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+    <div class="columns twelve a-c">
+        <a href="{{ path('admin_loveyou_add') }}">ajout.</a>
+    </div>
+{% endblock %}
+{% block linkscript %}
+
+{% endblock %}

@@ -1,0 +1,157 @@
+.a-r{
+    text-align: right;
+}
+
+.a-l{
+    text-align: left;
+}
+
+.a-c{
+    text-align: center;
+}
+
+.a-j{
+    text-align: justify;
+}
+
+#header{
+    margin: 40px 0;
+}
+
+.title-line{
+    margin-bottom: 30px;
+}
+
+#footer {
+    bottom: 5%;
+    position: fixed;
+    width: 80%;
+    max-width: 960px;
+}
+
+ul.listHome {
+    margin: 0 auto;
+    width: 400px;
+}
+
+.lstyle{
+    background: black none repeat scroll 0 0;
+    color: white;
+    padding: 2px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.lstyle:hover{
+    text-decoration: underline;
+}
+
+.form-group label{
+    display: inline-block;
+    width: 100px;
+    font-weight: initial;
+}
+
+.line-info td{
+    border-bottom: none;
+}
+
+.line-entete{
+    background: #E1E1E1;
+}
+
+.textareaFreedom{
+    width: 100%;
+    height: 350px;
+    margin-top: 20px;
+}
+
+#fade_intro {
+    background: white;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    display: flex; /* contexte sur le parent */
+}
+
+.text-intro {
+    margin: auto; /* eh oui, tout bêtement */
+    font-size: 18px;
+}
+
+.table-buy-list{
+    margin-bottom: 0;
+    background: #f8f6f6;
+}
+
+.table-buy-list td, .table-buy-list th{
+    border: 0;
+    text-align: center;
+}
+
+.line-total{
+    border-top: 1px solid #000000;
+}
+
+input.form-control {
+    background: black;
+    color: white;
+    border-radius: 0;
+    width: 260px;
+    border: 0;
+}
+
+input.form-control:focus {
+    border: 0;
+}
+
+#body{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+#body_2{
+    padding-bottom: 25px;
+}
+
+#fade_black{
+    background: black;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    opacity: 0.5;
+    display: none;
+}
+
+#popup_ajout{
+    width: 250px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 70px;
+    z-index: 1;
+    text-align: center;
+    display: none;
+}
+
+.container-block-serie{
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+}
+
+.block-serie{
+    flex-grow: 0;
+    width: 300px;
+    display: block;
+    padding: 10px;
+}

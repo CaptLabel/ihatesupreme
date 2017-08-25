@@ -1,0 +1,95 @@
+admin_homepage:
+    path:     /ihateadmin
+    defaults: { _controller: AdminBundle:Admin:index }
+
+admin_freedom:
+    path:     /ihateadmin/freedom
+    defaults: { _controller: AdminBundle:Admin:freedom }
+
+admin_serie:
+    path:     /ihateadmin/serie
+    defaults: { _controller: AdminBundle:Serie:show }
+
+admin_serie_add:
+    path:     /ihateadmin/serie/add/
+    defaults: { _controller: AdminBundle:Serie:add }
+
+admin_serie_update:
+    path:     /ihateadmin/serie/update/{id}
+    defaults: { _controller: AdminBundle:Serie:update }
+
+admin_serie_remove:
+    path:     /ihateadmin/serie/remove/{id}
+    defaults: { _controller: AdminBundle:Serie:remove }
+
+admin_photo:
+    path:     /ihateadmin/photo
+    defaults: { _controller: AdminBundle:Photo:show }
+
+admin_photo_add:
+    path:     /ihateadmin/photo/add
+    defaults: { _controller: AdminBundle:Photo:add }
+
+admin_photo_update:
+    path:     /ihateadmin/photo/update/{id}
+    defaults: { _controller: AdminBundle:Photo:update }
+
+admin_photo_remove:
+    path:     /ihateadmin/photo/remove/{id}
+    defaults: { _controller: AdminBundle:Photo:remove }
+
+admin_purchase:
+    path: /ihateadmin/purchase
+    defaults: { _controller: AdminBundle:Purchase:show }
+
+admin_purchase_update:
+    path: /ihateadmin/purchase/update/{id}
+    defaults: { _controller: AdminBundle:Purchase:update }
+
+admin_introduction:
+    path: /ihateadmin/introduction
+    defaults: { _controller: AdminBundle:Intro:show }
+
+admin_introduction_add:
+    path: /ihateadmin/introduction/add
+    defaults: { _controller: AdminBundle:Intro:add }
+
+admin_introduction_update:
+    path: /ihateadmin/introduction/update/{id}
+    defaults: { _controller: AdminBundle:Intro:update }
+
+admin_introduction_remove:
+    path: /ihateadmin/introduction/remove/{id}
+    defaults: { _controller: AdminBundle:Intro:remove }
+
+admin_status:
+    path: /ihateadmin/status
+    defaults: { _controller: AdminBundle:Status:show }
+
+admin_status_add:
+    path: /ihateadmin/status/add
+    defaults: { _controller: AdminBundle:Status:add }
+
+admin_status_update:
+    path: /ihateadmin/status/update/{id}
+    defaults: { _controller: AdminBundle:Status:update }
+
+admin_status_remove:
+    path: /ihateadmin/status/remove/{id}
+    defaults: { _controller: AdminBundle:Status:remove }
+
+admin_loveyou:
+    path: /ihateadmin/loveyou
+    defaults: { _controller: AdminBundle:Loveyou:show}
+
+admin_loveyou_add:
+    path: /ihateadmin/loveyou/add
+    defaults: { _controller: AdminBundle:Loveyou:add}
+
+admin_loveyou_update:
+    path: /ihateadmin/loveyou/update/{id}
+    defaults: { _controller: AdminBundle:Loveyou:update}
+
+admin_loveyou_remove:
+    path: /ihateadmin/loveyou/remove/{id}
+    defaults: { _controller: AdminBundle:Loveyou:remove}

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>{% block title %}i hate{% endblock %}</title>
+
+    <link href="{{ asset('css/libs/fonts.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('css/libs/skeleton/normalize.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('css/libs/skeleton/skeleton.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <div id="header" class="row">
+        <div class="column twelve a-c">
+            <a href="{{ path('default_homepage') }}">i hate supreme</a>
+        </div>
+    </div>
+
+
+
+    <div id="{% if id_body is defined %}{{ id_body }}{% else %}body{% endif %}" class="row">
+        <div class="u-full-width a-c title-line">
+            {% block titlepage %}{% endblock %}
+        </div>
+    {% block body %}{% endblock %}
+    </div>
+    <div id="footer" class="row">
+        {% block link %}{% endblock %}
+    </div>
+</div>
+{% block finbody %}{% endblock %}
+</body>
+<script src="{{ asset('js/libs/jquery3.2.1.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/script.js') }}" type="text/javascript"></script>
+{% block linkscript %}{% endblock %}
+</html>

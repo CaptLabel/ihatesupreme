@@ -1,0 +1,44 @@
+{% extends "@Admin/admin.layout.html.twig" %}
+{% block body %}
+    <table class="u-full-width">
+        <tbody>
+        {% if listPhoto|length == 0 %}
+            <tr>
+                <td class="a-c" colspan="7">il n'y a pas de photo</td>
+            </tr>
+        {% else %}
+            {% for photo in listPhoto %}
+                <tr class="line-entete">
+                    <th>&nbsp;</th>
+                    <th>title</th>
+                    <th>serie</th>
+                    <th>price</th>
+                    <th>name</th>
+                    <th>modify</th>
+                    <th>delete</th>
+                </tr>
+                <tr class="line-info">
+                    <td><img height="75" width="75" src="{{ asset(photo.webPath) }}" alt="{{ photo.name }}"
+                             title="{{ photo.name }}"/></td>
+                    <td>{{ photo.title }}</td>
+                    <td>{{ photo.serie.name }}</td>
+                    <td>{{ photo.price }}</td>
+                    <td>{{ photo.name }}</td>
+                    <td><a href="{{ path('admin_photo_update', {'id': photo.id}) }}">U</a></td>
+                    <td><a href="{{ path('admin_photo_remove', {'id': photo.id}) }}">X</a></td>
+                </tr>
+                <tr>
+                    <td><b>description</b></td>
+                    <td colspan="6">{{ photo.description }}</td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+    <div class="columns twelve a-c">
+        <a href="{{ path('admin_photo_add') }}">ajout.</a>
+    </div>
+{% endblock %}
+{% block linkscript %}
+
+{% endblock %}

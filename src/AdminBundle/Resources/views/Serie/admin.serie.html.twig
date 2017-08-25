@@ -1,0 +1,45 @@
+{% extends "@Admin/admin.layout.html.twig" %}
+{% block body %}
+    <table class="u-full-width">
+        <tbody>
+        {% if listSerie|length == 0 %}
+            <tr>
+                <td colspan="5">il n'y a pas de série</td>
+            </tr>
+        {% else %}
+            {% for serie in listSerie %}
+                <tr class="line-entete">
+                    <th style="width: 140px;">name</th>
+                    <th>ville</th>
+                    <th>going</th>
+                    <th style="width: 50px;">modify</th>
+                    <th style="width: 50px;">delete</th>
+                </tr>
+                <tr class="line-info">
+                    <td>{{ serie.name }}</td>
+                    <td>{{ serie.ville }}</td>
+                    <td>
+                        <ul>
+                            {% for going in serie.goings %}
+                                <li><a href="{{ going.link }}" target="_blank">{{ going.title }}</a><br/>{{ going.adress }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td><a href="{{ path('admin_serie_update', {'id': serie.id}) }}">U</a></td>
+                    <td><a href="{{ path('admin_serie_remove', {'id': serie.id}) }}">X</a></td>
+                </tr>
+                <tr>
+                    <td><b>edito</b></td>
+                    <td colspan="4">
+                        {{ serie.edito.text }}
+                    </td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+
+        </tbody>
+    </table>
+    <div class="columns twelve a-c">
+        <a href="{{ path('admin_serie_add') }}">ajout.</a>
+    </div>
+{% endblock %}

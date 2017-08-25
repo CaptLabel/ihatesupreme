@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'tox_typewriterregular';
+    src: url('./fonts/tox_typewriter-webfont.woff2') format('woff2'),
+    url('./fonts/tox_typewriter-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+body{
+    font-family: "tox_typewriterregular", "Raleway", "HelveticaNeue", "Helvetica Neue", Courier, Arial, sans-serif;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+.lstyle{
+    background: black none repeat scroll 0 0;
+    color: white;
+    padding: 2px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}

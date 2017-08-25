@@ -1,0 +1,17 @@
+{% extends "DefaultBundle::layout.html.twig" %}
+{% block titlepage %}
+    i hate you.
+{% endblock %}
+{% block body %}
+    {% if listLoveyou|length == 0 %}
+        <div class="u-full-width">
+            Il n'y pas de lien pour le moment
+        </div>
+    {% else %}
+        <ul class="a-c">
+            {% for loveyou in listLoveyou %}
+                <li><a href="{{ loveyou.link }}" target="_blank">{{ loveyou.text }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

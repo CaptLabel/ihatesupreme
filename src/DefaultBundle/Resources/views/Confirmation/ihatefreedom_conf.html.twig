@@ -1,0 +1,17 @@
+{% extends "DefaultBundle::layout.html.twig" %}
+{% block body %}
+    <div class="columns twelve a-c">
+        merci pour votre envoie
+    </div>
+{% endblock %}
+{% block link %}
+{% endblock %}
+{% block finbody %}
+    <script type="text/javascript">
+        var path = ''; //write here name of your page
+        history.pushState(null, null, path + window.location.search);
+        window.addEventListener('popstate', function () {
+            history.pushState(null, null, path + window.location.search);
+        });
+    </script>
+{% endblock %}

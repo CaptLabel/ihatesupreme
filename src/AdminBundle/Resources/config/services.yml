@@ -1,0 +1,9 @@
+services:
+    admin.keyimggenerator:
+        class: AdminBundle\Service\KeyImgGenerator
+
+    app.twig_extension:
+        class: AdminBundle\Twig\AdminExtension
+        public: false
+        tags:
+            - { name: twig.extension }

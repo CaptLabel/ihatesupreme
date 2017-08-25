@@ -1,0 +1,15 @@
+{% extends "DefaultBundle::layout.html.twig" %}
+{% block titlepage %}
+    {{ serie.name }}.
+{% endblock %}
+{% block body %}
+    <div class="twelve columns a-j">
+        {{ serie.edito.text }}
+    </div>
+{% endblock %}
+{% block link %}
+    <div class="u-pull-left"><a href="{{ path('default_ihategoing', {'id': serie.id}) }}">i hate going out.</a>
+    </div>
+    <div class="u-pull-right"><a href="{{ path('default_ihateseriephoto', {'id': serie.id, 'idp': '0'}) }}">serie.</a>
+    </div>
+{% endblock %}

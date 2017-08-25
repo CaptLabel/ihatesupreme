@@ -1,0 +1,21 @@
+{% extends "DefaultBundle::layout.html.twig" %}
+{% block titlepage %}
+    i hate going out in {{ serie.ville }}.
+{% endblock %}
+{% block body %}
+    <div class="row">
+        {% for going in serie.goings %}
+            <div class="one-third column">
+                <div><a href="{{ going.link }}" target="_blank">{{ going.title }}</a></div>
+                <div>{{ going.adress }}</div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="row">
+        <div class="column twelve a-c" style="margin-top: 200px;">i hate going out, but maybe you do.</div>
+    </div>
+{% endblock %}
+{% block link %}
+    <div class="u-pull-right"><a href="{{ path('default_ihateseriephoto', {'id': serie.id, 'idp': '0'}) }}">serie.</a>
+    </div>
+{% endblock %}

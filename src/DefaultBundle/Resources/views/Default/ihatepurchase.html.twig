@@ -1,0 +1,85 @@
+{% extends "DefaultBundle::layout.html.twig" %}
+{% block titlepage %}
+    i hate buying.
+{% endblock %}
+{% block body %}
+    <table class="u-full-width ui-parent-calcul">
+        <thead>
+            <tr>
+                <th colspan="4">Votre panier</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% if listArticle|length == 0 or listArticle[0] is null %}
+            <tr>
+                <td>Vous n'avez pas encore d'article pour les commander : <a href="{{ path('default_ihateseries') }}">i hate series.</a></td>
+            </tr>
+        {% else %}
+            {% for item in listArticle %}
+                <tr class="ui-item-buy" data-id="{{ item.id }}">
+                    <td><img width="200" src="{{ asset(item.webPath) }}" alt="{{ item.name }}" title="{{ item.name }}"/></td>
+                    <td>{{ item.title }}</td>
+                    <td data-price="{{ item.price }}">{{ item.price }}€</td>
+                    <td><span data-id="{{ item.id }}" date-action="remove" class="ui-remove-item-panier lstyle">X</span></td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td class="a-r" colspan="4"><span>total : </span><span class="ui-total"></span></td>
+            </tr>
+        {% endif %}
+        </tbody>
+    </table>
+    {% if listArticle|length > 0 and listArticle[0] is not null %}
+    <div class="u-full-width" style="margin-bottom: 20px;">
+        <b>Vos coordonnées</b>
+    </div>
+    <div class="columns twelve">
+        {{ form_start(form, {'attr': {'class': 'form-horizontal', 'autocomplete': 'off'}}) }}
+
+        <div class="form-group">
+            {{ form_label(form.lastname, 'nom :') }}
+            {{ form_widget(form.lastname) }}
+            {{ form_errors(form.lastname) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.firstname, 'prénom :') }}
+            {{ form_widget(form.firstname) }}
+            {{ form_errors(form.firstname) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.adress, 'adresse :') }}
+            {{ form_widget(form.adress) }}
+            {{ form_errors(form.adress) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.zip_code, 'code postal :') }}
+            {{ form_widget(form.zip_code) }}
+            {{ form_errors(form.zip_code) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.city, 'ville :') }}
+            {{ form_widget(form.city) }}
+            {{ form_errors(form.city) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.email, 'mail :') }}
+            {{ form_widget(form.email) }}
+            {{ form_errors(form.email) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.number, 'numéro :') }}
+            {{ form_widget(form.number) }}
+            {{ form_errors(form.number) }}
+        </div>
+        {{ form_widget(form.purchase_list) }}
+
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </div>
+    <div id="buy" class="u-pull-right lstyle row">commander.</div>
+    {% endif %}
+{% endblock %}
+{% block link %}{% endblock %}
+{% block linkscript %}
+    <script src="{{ asset('js/script-panier.js') }}" type="text/javascript"></script>
+{% endblock %}

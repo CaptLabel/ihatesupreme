@@ -1,0 +1,15 @@
+{% extends "@Admin/admin.layout.html.twig" %}
+{% block body %}
+    <div class="columns twelve a-c">
+        {{ action }} une serie.
+    </div>
+    <div class="columns twelve">
+        {{ form_start(form, {'attr': {'class': 'form-horizontal', 'autocomplete': 'off'}}) }}
+        {{ form_errors(form) }}
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+{% block linkscript %}
+    <script src="{{ asset('js/admin/script.admin.js') }}" type="text/javascript"></script>
+{% endblock %}

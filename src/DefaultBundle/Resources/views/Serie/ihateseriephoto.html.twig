@@ -1,0 +1,40 @@
+{% extends "DefaultBundle::layout.html.twig" %}
+{% block titlepage %}
+    <a href="{{ path('default_ihateedito', {'id': photo.serie.id}) }}">{{ photo.serie.name }}.</a>
+{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="columns six">
+            <img width="100%" src="{{ asset(photo.webPath) }}" alt="{{ photo.name }}" title="{{ photo.name }}"/>
+        </div>
+        <div class="columns six">
+            <div class="row"><b>{{ photo.title }}</b></div>
+            <div class="row">{{ photo.description }}</div>
+        </div>
+        <div class="columns twelve a-c">
+            <span style="font-size: 24px; margin-right: 15px;">{{ photo.price }}€</span>
+            <span><span data-id="{{ photo.id }}" date-action="{% if inPanier %}remove{% else %}add{% endif %}" class="lstyle ui-btn-panier">{% if inPanier %}retirer{% else %}ajouter{% endif %} au panier</span></span>
+        </div>
+    </div>
+{% endblock %}
+{% block link %}
+    {% if photoCount > 1 %}
+        <div class="u-pull-left"><a href="{{ path('default_ihateseriephoto', {'id': photo.serie.id, 'idp': previdx}) }}">previous.</a></div>
+        <div class="u-pull-right"><a href="{{ path('default_ihateseriephoto', {'id': photo.serie.id, 'idp': nextidx}) }}">next.</a></div>
+    {% endif %}
+{% endblock %}
+{% block finbody %}
+    <div id="popup_ajout">
+        ajout au panier bravo !
+        <br>
+        <br>
+        <a href="{{ path('default_ihatepurchase') }}">i hate purchase.</a>
+        <br>
+        <br>
+        <div id="closepop" class="lstyle" onclick="hidePopupAjout()">retour à la série.</div>
+    </div>
+    <div id="fade_black"></div>
+{% endblock %}
+{% block linkscript %}
+    <script src="{{ asset('js/script-panier.js') }}" type="text/javascript"></script>
+{% endblock %}
