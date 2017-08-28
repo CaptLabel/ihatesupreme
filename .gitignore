@@ -8,7 +8,7 @@
 /app/spool/*
 
 # Vendor
-/vendor/*
+/vendor/
 
 # Cache, session files and logs (Symfony3)
 /var/cache/*

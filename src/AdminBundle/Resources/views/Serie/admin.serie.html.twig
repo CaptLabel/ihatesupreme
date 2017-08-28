@@ -1,5 +1,8 @@
 {% extends "@Admin/admin.layout.html.twig" %}
 {% block body %}
+    <div class="u-full-width">
+        <a href="{{ path('admin_serie_add') }}" class="u-pull-right" style="margin-bottom: 20px;">ajout.</a>
+    </div>
     <table class="u-full-width">
         <tbody>
         {% if listSerie|length == 0 %}
@@ -39,7 +42,4 @@
 
         </tbody>
     </table>
-    <div class="columns twelve a-c">
-        <a href="{{ path('admin_serie_add') }}">ajout.</a>
-    </div>
 {% endblock %}
