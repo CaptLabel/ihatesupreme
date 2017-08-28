@@ -1,5 +1,9 @@
 {% extends "@Admin/admin.layout.html.twig" %}
 {% block body %}
+    <div class="u-full-width">
+        <select id="select_filtre"><option value="0">defaut</option></select>
+        <a href="{{ path('admin_photo_add') }}" class="u-pull-right">ajout.</a>
+    </div>
     <table class="u-full-width">
         <tbody>
         {% if listPhoto|length == 0 %}
@@ -8,37 +12,40 @@
             </tr>
         {% else %}
             {% for photo in listPhoto %}
-                <tr class="line-entete">
-                    <th>&nbsp;</th>
-                    <th>title</th>
-                    <th>serie</th>
-                    <th>price</th>
-                    <th>name</th>
-                    <th>modify</th>
-                    <th>delete</th>
-                </tr>
-                <tr class="line-info">
-                    <td><img height="75" width="75" src="{{ asset(photo.webPath) }}" alt="{{ photo.name }}"
-                             title="{{ photo.name }}"/></td>
-                    <td>{{ photo.title }}</td>
-                    <td>{{ photo.serie.name }}</td>
-                    <td>{{ photo.price }}</td>
-                    <td>{{ photo.name }}</td>
-                    <td><a href="{{ path('admin_photo_update', {'id': photo.id}) }}">U</a></td>
-                    <td><a href="{{ path('admin_photo_remove', {'id': photo.id}) }}">X</a></td>
-                </tr>
-                <tr>
-                    <td><b>description</b></td>
-                    <td colspan="6">{{ photo.description }}</td>
+                <tr class="ui_row_filtre" ui-filtre-type="{{ photo.serie.name|replace(' ', '_') }}">
+                    <td style="border: 0; padding: 0;">
+                        <table cellpadding="0" cellspacing="0" style="padding: 0; margin: 0; border: 0;" class="u-full-width">
+                            <tr class="line-entete">
+                                <th>&nbsp;</th>
+                                <th>title</th>
+                                <th>serie</th>
+                                <th>price</th>
+                                <th>name</th>
+                                <th>modify</th>
+                                <th>delete</th>
+                            </tr>
+                            <tr class="line-info">
+                                <td><img height="75" width="75" src="{{ asset(photo.webPath) }}" alt="{{ photo.name }}"
+                                         title="{{ photo.name }}"/></td>
+                                <td>{{ photo.title }}</td>
+                                <td>{{ photo.serie.name }}</td>
+                                <td>{{ photo.price }}</td>
+                                <td>{{ photo.name }}</td>
+                                <td><a href="{{ path('admin_photo_update', {'id': photo.id}) }}">U</a></td>
+                                <td><a href="{{ path('admin_photo_remove', {'id': photo.id}) }}">X</a></td>
+                            </tr>
+                            <tr>
+                                <td><b>description</b></td>
+                                <td colspan="6">{{ photo.description }}</td>
+                            </tr>
+                        </table>
+                    </td>
                 </tr>
             {% endfor %}
         {% endif %}
         </tbody>
     </table>
-    <div class="columns twelve a-c">
-        <a href="{{ path('admin_photo_add') }}">ajout.</a>
-    </div>
 {% endblock %}
 {% block linkscript %}
-
+    <script src="{{ asset('js/admin/script.filtre.js') }}"></script>
 {% endblock %}

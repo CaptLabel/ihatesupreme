@@ -1,5 +1,8 @@
 {% extends "@Admin/admin.layout.html.twig" %}
 {% block body %}
+    <div class="u-full-width">
+        <select id="select_filtre"><option value="0">defaut</option></select>
+    </div>
     <table class="u-full-width">
         <tbody>
         {% if listPurchase|length == 0 %}
@@ -8,64 +11,71 @@
             </tr>
         {% else %}
             {% for purchase in listPurchase %}
-                <tr class="line-entete">
-                    <th>nom</th>
-                    <th>prenom</th>
-                    <th>email</th>
-                    <th>adresse</th>
-                    <th>code postal</th>
-                    <th>ville</th>
-                    <th>numéro</th>
-                    <th>date commande</th>
-                </tr>
-                <tr class="line-info">
-                    <td>{{ purchase.lastname }}</td>
-                    <td>{{ purchase.firstname }}</td>
-                    <td>{{ purchase.email }}</td>
-                    <td>{{ purchase.adress }}</td>
-                    <td>{{ purchase.zipCode }}</td>
-                    <td>{{ purchase.city }}</td>
-                    <td>{{ purchase.number }}</td>
-                    <td>{{ purchase.datePurcahse.format('d/m/Y H:i') }}</td>
-                </tr>
-                <tr class="line-info">
-                    <td><b>commande</b></td>
-                    <td colspan="7">
-                        <table class="u-full-width table-buy-list ui-parent-calcul">
-                            <thead>
-                            <tr>
-                                <th>titre</th>
-                                <th>code</th>
-                                <th>price</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {% for item in purchase.buyList|json_decode %}
-                                <tr>
-                                    <td>{{ item.title }}</td>
-                                    <td>{{ item.code }}</td>
-                                    <td data-price="{{ item.price }}">{{ item.price }} €</td>
-                                </tr>
-                            {% endfor %}
-                                <tr class="line-total">
-                                    <td>&nbsp;</td>
-                                    <td>total</td>
-                                    <td class="ui-total"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td><b>statut</b></td>
-                    <td>{{ purchase.status.state }}</td>
-                    <td colspan="7"><a href="{{ path('admin_purchase_update', {'id': purchase.id}) }}">U</a></td>
-                </tr>
+            <tr class="ui_row_filtre" ui-filtre-type="{{ purchase.status.state }}">
+                <td style="border: 0; padding: 0;">
+                    <table cellpadding="0" cellspacing="0" style="padding: 0; margin: 0; border: 0;" class="u-full-width">
+                        <tr class="line-entete">
+                            <th>nom</th>
+                            <th>prenom</th>
+                            <th>email</th>
+                            <th>adresse</th>
+                            <th>code postal</th>
+                            <th>ville</th>
+                            <th>numéro</th>
+                            <th>date commande</th>
+                        </tr>
+                        <tr class="line-info">
+                            <td>{{ purchase.lastname }}</td>
+                            <td>{{ purchase.firstname }}</td>
+                            <td>{{ purchase.email }}</td>
+                            <td>{{ purchase.adress }}</td>
+                            <td>{{ purchase.zipCode }}</td>
+                            <td>{{ purchase.city }}</td>
+                            <td>{{ purchase.number }}</td>
+                            <td>{{ purchase.datePurcahse.format('d/m/Y H:i') }}</td>
+                        </tr>
+                        <tr class="line-info">
+                            <td><b>commande</b></td>
+                            <td colspan="7">
+                                <table class="u-full-width table-buy-list ui-parent-calcul">
+                                    <thead>
+                                    <tr>
+                                        <th>titre</th>
+                                        <th>code</th>
+                                        <th>price</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for item in purchase.buyList|json_decode %}
+                                        <tr>
+                                            <td>{{ item.title }}</td>
+                                            <td>{{ item.code }}</td>
+                                            <td data-price="{{ item.price }}">{{ item.price }} €</td>
+                                        </tr>
+                                    {% endfor %}
+                                    <tr class="line-total">
+                                        <td>&nbsp;</td>
+                                        <td>total</td>
+                                        <td class="ui-total"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>statut</b></td>
+                            <td>{{ purchase.status.state }}</td>
+                            <td colspan="7"><a href="{{ path('admin_purchase_update', {'id': purchase.id}) }}">U</a></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
             {% endfor %}
         {% endif %}
         </tbody>
     </table>
 {% endblock %}
 {% block linkscript %}
-    <script src="{{ asset('js/script-panier.js') }}"></script>
+    <script src="{{ asset('js/admin/script.filtre.js') }}"></script>
 {% endblock %}

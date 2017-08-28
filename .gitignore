@@ -7,6 +7,9 @@
 # Email spool folder
 /app/spool/*
 
+# Vendor
+/vendor/*
+
 # Cache, session files and logs (Symfony3)
 /var/cache/*
 /var/logs/*
@@ -39,6 +42,3 @@
 
 # Backup entities generated with doctrine:generate:entities command
 **/Entity/*~
-
-# Vendor
-/vendor/*
