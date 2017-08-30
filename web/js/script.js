@@ -4,11 +4,6 @@ $('#buy').click(function(){
         list.push($(this).attr('data-id'));
     });
     $('#defaultbundle_purchase_purchase_list').val(list);
-
-    console.log(list);
-
-
-    //return false;
     $('form[name=defaultbundle_purchase]').submit();
 });
 
