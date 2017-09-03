@@ -21,7 +21,7 @@ class AdminController extends Controller
     public function freedomAction()
     {
         $repository = $this->getDoctrine()->getRepository('DefaultBundle:Freedom');
-        $listFreedom = $repository->findAll();
+        $listFreedom = $repository->findBy(array(), array('datePost' => 'DESC'));
         return $this->render('AdminBundle:Default:admin.freedom.html.twig', array(
             'listFreedom' => $listFreedom
         ));

@@ -8,7 +8,7 @@ security:
             memory:
                 users:
                     admin:
-                        password: kitten
+                        password: $2y$12$LKyTBC1J9jY.Sq1gjfvvxOIDM8DxC0t2wCIJ9pSeozGxxfgaHkULy
                         roles: 'ROLE_ADMIN'
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -19,7 +19,8 @@ security:
             anonymous: ~
             http_basic: ~
     access_control:
-        # require ROLE_ADMIN for /admin*
         - { path: ^/admin, roles: ROLE_ADMIN }
     encoders:
-            Symfony\Component\Security\Core\User\User: plaintext
+        Symfony\Component\Security\Core\User\User:
+            algorithm: bcrypt
+            cost: 12

@@ -53,6 +53,9 @@ function updateTotalPanier(){
             total += parseFloat($(this).attr('data-price'));
         });
         $(this).find('.ui-total').html(total+' €');
+        if($('#amount').length > 0){
+            $('#amount').val(total);
+        }
     });
 
 }

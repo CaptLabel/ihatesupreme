@@ -76,6 +76,7 @@ class DefaultController extends Controller
         $form = $this->createForm(PurchaseType::class, $purchase);
         $purchase_form = $request->request->get('defaultbundle_purchase');
         $purchase_list = $purchase_form['purchase_list'];
+
         if ($form->handleRequest($request)->isValid() && !empty($purchase_list)) {
             $purchase_list = explode(',', $purchase_list);
             $em = $this->getDoctrine()->getManager();
@@ -90,6 +91,38 @@ class DefaultController extends Controller
             if(count($buyList) > 0){
                 $purchase->setBuyList(json_encode($buyList));
             }
+
+            $amount = $request->get('amount');
+            //$purchase->setAmount($amount);
+
+            // Message client
+            $message = \Swift_Message::newInstance()
+                ->setSubject('Confirmation de votre commande')
+                ->setFrom($this->container->getParameter('email_from'))
+                ->setTo($purchase->getEmail())
+                ->setBody(
+                    $this->renderView(
+                        '@Default/Mail/mail.confirmation.purchase.html.twig',
+                        array('purchase' => $purchase, 'buyList' => $buyList, 'amount' => $amount)
+                    ),
+                    'text/html'
+                );
+            $this->get('mailer')->send($message);
+
+            // Message admin
+            $message = \Swift_Message::newInstance()
+                ->setSubject('Une nouvelle commande i hate supreme')
+                ->setFrom($this->container->getParameter('email_from'))
+                ->setTo($this->container->getParameter('email_admin'))
+                ->setBody(
+                    $this->renderView(
+                        '@Admin/Mail/mail.admin.confirmation.purchase.html.twig',
+                        array('purchase' => $purchase, 'buyList' => $buyList, 'amount' => $amount)
+                    ),
+                    'text/html'
+                );
+            $this->get('mailer')->send($message);
+
             $repositoryStatus = $this->getDoctrine()->getRepository('DefaultBundle:Status');
             $status = $repositoryStatus->find(1);
             $purchase->setStatus($status);
@@ -97,6 +130,7 @@ class DefaultController extends Controller
             $em->persist($purchase);
             $em->flush();
             return $this->redirect($this->generateUrl('default_ihatepurchase_conf'));
+
         }
         $listArticle = array();
         $id_body = "body";

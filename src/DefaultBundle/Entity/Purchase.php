@@ -131,6 +131,13 @@ class Purchase
     private $number;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="amount", type="string", length=255)
+     */
+    private $amount;
+
+    /**
      * @var array
      *
      * @ORM\Column(name="buy_list", type="json_array")
@@ -276,6 +283,22 @@ class Purchase
     public function getNumber()
     {
         return $this->number;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAmount()
+    {
+        return $this->amount;
+    }
+
+    /**
+     * @param string $amount
+     */
+    public function setAmount($amount)
+    {
+        $this->amount = $amount;
     }
 
     /**

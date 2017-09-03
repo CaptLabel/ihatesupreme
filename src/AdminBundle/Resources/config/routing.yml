@@ -17,10 +17,14 @@ admin_serie_add:
 admin_serie_update:
     path:     /ihateadmin/serie/update/{id}
     defaults: { _controller: AdminBundle:Serie:update }
+    requirements:
+        id:   \d+
 
 admin_serie_remove:
     path:     /ihateadmin/serie/remove/{id}
     defaults: { _controller: AdminBundle:Serie:remove }
+    requirements:
+        id:   \d+
 
 admin_photo:
     path:     /ihateadmin/photo
@@ -33,10 +37,14 @@ admin_photo_add:
 admin_photo_update:
     path:     /ihateadmin/photo/update/{id}
     defaults: { _controller: AdminBundle:Photo:update }
+    requirements:
+        id:   \d+
 
 admin_photo_remove:
     path:     /ihateadmin/photo/remove/{id}
     defaults: { _controller: AdminBundle:Photo:remove }
+    requirements:
+        id:   \d+
 
 admin_purchase:
     path: /ihateadmin/purchase
@@ -45,6 +53,8 @@ admin_purchase:
 admin_purchase_update:
     path: /ihateadmin/purchase/update/{id}
     defaults: { _controller: AdminBundle:Purchase:update }
+    requirements:
+        id:   \d+
 
 admin_introduction:
     path: /ihateadmin/introduction
@@ -57,10 +67,14 @@ admin_introduction_add:
 admin_introduction_update:
     path: /ihateadmin/introduction/update/{id}
     defaults: { _controller: AdminBundle:Intro:update }
+    requirements:
+        id:   \d+
 
 admin_introduction_remove:
     path: /ihateadmin/introduction/remove/{id}
     defaults: { _controller: AdminBundle:Intro:remove }
+    requirements:
+        id:   \d+
 
 admin_status:
     path: /ihateadmin/status
@@ -73,10 +87,14 @@ admin_status_add:
 admin_status_update:
     path: /ihateadmin/status/update/{id}
     defaults: { _controller: AdminBundle:Status:update }
+    requirements:
+        id:   \d+
 
 admin_status_remove:
     path: /ihateadmin/status/remove/{id}
     defaults: { _controller: AdminBundle:Status:remove }
+    requirements:
+        id:   \d+
 
 admin_loveyou:
     path: /ihateadmin/loveyou
@@ -89,7 +107,11 @@ admin_loveyou_add:
 admin_loveyou_update:
     path: /ihateadmin/loveyou/update/{id}
     defaults: { _controller: AdminBundle:Loveyou:update}
+    requirements:
+        id:   \d+
 
 admin_loveyou_remove:
     path: /ihateadmin/loveyou/remove/{id}
     defaults: { _controller: AdminBundle:Loveyou:remove}
+    requirements:
+        id:   \d+

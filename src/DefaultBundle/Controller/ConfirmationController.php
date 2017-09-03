@@ -17,7 +17,6 @@ class ConfirmationController extends Controller
     }
     public function purchaseAction()
     {
-
         return $this->render('DefaultBundle:Confirmation:ihatepurchase_conf.html.twig');
     }
 }

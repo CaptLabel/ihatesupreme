@@ -39,22 +39,32 @@ default_ihatecopyright:
 default_ihateedito:
     path:     /ihateedito/{id}
     defaults: { _controller: DefaultBundle:Serie:edito }
+    requirements:
+        id:   \d+
 
 default_ihategoing:
     path:     /ihategoing/{id}
     defaults: { _controller: DefaultBundle:Serie:going }
+    requirements:
+        id:   \d+
 
 default_ihateseriephoto:
     path:     /ihateserie/{id}/{idp}
     defaults: { _controller: DefaultBundle:Serie:seriephoto }
+    requirements:
+        idp:   \d+
 
 panier_add:
     path:     /panier/add/{id}
     defaults: { _controller: DefaultBundle:Panier:add }
+    requirements:
+        id:   \d+
 
 panier_remove:
     path:     /panier/remove/{id}
     defaults: { _controller: DefaultBundle:Panier:remove }
+    requirements:
+        id:   \d+
 
 panier_clean:
     path:     /panier/clean

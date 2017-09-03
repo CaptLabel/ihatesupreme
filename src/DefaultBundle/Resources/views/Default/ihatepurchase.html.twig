@@ -6,7 +6,7 @@
     <table class="u-full-width ui-parent-calcul">
         <thead>
             <tr>
-                <th colspan="4">Votre panier</th>
+                <th colspan="4">votre panier</th>
             </tr>
         </thead>
         <tbody>
@@ -31,7 +31,7 @@
     </table>
     {% if listArticle|length > 0 and listArticle[0] is not null %}
     <div class="u-full-width" style="margin-bottom: 20px;">
-        <b>Vos coordonnées</b>
+        <b>vos coordonnées</b>
     </div>
     <div class="columns twelve">
         {{ form_start(form, {'attr': {'class': 'form-horizontal', 'autocomplete': 'off'}}) }}
@@ -74,6 +74,9 @@
         {{ form_widget(form.purchase_list) }}
 
         {{ form_rest(form) }}
+
+        <input type="hidden" name="amount" id="amount">
+
         {{ form_end(form) }}
     </div>
     <div id="buy" class="u-pull-right lstyle row">commander.</div>
