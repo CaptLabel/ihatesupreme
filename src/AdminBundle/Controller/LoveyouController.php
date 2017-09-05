@@ -10,9 +10,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class LoveyouController extends Controller
 {
-    /**
-     * @Security("has_role('ROLE_ADMIN')")
-     */
     public function showAction()
     {
         $test = "DefaultBundle:Loveyou";
@@ -24,7 +21,6 @@ class LoveyouController extends Controller
     }
 
     /**
-     * @Security("has_role('ROLE_ADMIN')")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
@@ -45,7 +41,6 @@ class LoveyouController extends Controller
     }
 
     /**
-     * @Security("has_role('ROLE_ADMIN')")
      * @param Request $request
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
@@ -68,7 +63,6 @@ class LoveyouController extends Controller
     }
 
     /**
-     * @Security("has_role('ROLE_ADMIN')")
      * @param $id
      * @return \Symfony\Component\HttpFoundation\Response
      */

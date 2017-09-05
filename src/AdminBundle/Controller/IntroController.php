@@ -10,9 +10,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class IntroController extends Controller
 {
-    /**
-     * @Security("has_role('ROLE_ADMIN')")
-     */
     public function showAction()
     {
         $repository = $this->getDoctrine()->getManager()->getRepository('DefaultBundle:Introduction');
@@ -23,7 +20,6 @@ class IntroController extends Controller
     }
 
     /**
-     * @Security("has_role('ROLE_ADMIN')")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
@@ -44,7 +40,6 @@ class IntroController extends Controller
     }
 
     /**
-     * @Security("has_role('ROLE_ADMIN')")
      * @param Request $request
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
@@ -67,7 +62,6 @@ class IntroController extends Controller
     }
 
     /**
-     * @Security("has_role('ROLE_ADMIN')")
      * @param $id
      * @return \Symfony\Component\HttpFoundation\Response
      */

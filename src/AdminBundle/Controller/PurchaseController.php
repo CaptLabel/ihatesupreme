@@ -9,9 +9,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class PurchaseController extends Controller
 {
-    /**
-     * @Security("has_role('ROLE_ADMIN')")
-     */
     public function showAction()
     {
         $repository = $this->getDoctrine()->getRepository('DefaultBundle:Purchase');
@@ -22,7 +19,6 @@ class PurchaseController extends Controller
     }
 
     /**
-     * @Security("has_role('ROLE_ADMIN')")
      * @param Request $request
      * @param $id
      * @return \Symfony\Component\HttpFoundation\Response
