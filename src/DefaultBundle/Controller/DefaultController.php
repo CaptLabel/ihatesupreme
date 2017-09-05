@@ -93,7 +93,6 @@ class DefaultController extends Controller
             }
 
             $amount = $request->get('amount');
-            //$purchase->setAmount($amount);
 
             // Message client
             $message = \Swift_Message::newInstance()
