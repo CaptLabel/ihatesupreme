@@ -148,7 +148,7 @@ class Purchase
      * @var \Datetime
      * @ORM\Column(name="datePurchase", type="datetime")
      */
-    private $datePurcahse;
+    private $datePurchase;
 
     /**
      * @ORM\ManyToOne(targetEntity="DefaultBundle\Entity\Status")
@@ -330,15 +330,15 @@ class Purchase
      */
     public function getDatePurcahse()
     {
-        return $this->datePurcahse;
+        return $this->datePurchase;
     }
 
     /**
-     * @param \Datetime $datePurcahse
+     * @param \Datetime $datePurchase
      */
-    public function setDatePurcahse($datePurcahse)
+    public function setDatePurcahse($datePurchase)
     {
-        $this->datePurcahse = $datePurcahse;
+        $this->datePurchase = $datePurchase;
     }
 
     /**
@@ -395,6 +395,7 @@ class Purchase
      */
     public function preUpload()
     {
-        $this->datePurcahse = new \DateTime('now');
+        //TODO GET AMOUNT
+        $this->datePurchase = new \DateTime('now');
     }
 }

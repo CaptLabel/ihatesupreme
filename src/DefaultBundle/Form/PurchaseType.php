@@ -20,7 +20,8 @@ class PurchaseType extends AbstractType
                 TextType::class,
                 array(
                     'attr' => array(
-                        'class' => 'form-control'
+                        'class' => 'form-control',
+                        'maxlength' => '55'
                     )
                 )
             )->add(
@@ -28,7 +29,8 @@ class PurchaseType extends AbstractType
                 TextType::class,
                 array(
                     'attr' => array(
-                        'class' => 'form-control'
+                        'class' => 'form-control',
+                        'maxlength' => '55'
                     )
                 )
             )
@@ -47,7 +49,8 @@ class PurchaseType extends AbstractType
                 TextType::class,
                 array(
                     'attr' => array(
-                        'class' => 'form-control'
+                        'class' => 'form-control',
+                        'maxlength' => '255'
                     )
                 )
             )
@@ -56,7 +59,8 @@ class PurchaseType extends AbstractType
                 TextType::class,
                 array(
                     'attr' => array(
-                        'class' => 'form-control'
+                        'class' => 'form-control',
+                        'maxlength' => '5'
                     )
                 )
             )
@@ -65,7 +69,8 @@ class PurchaseType extends AbstractType
                 TextType::class,
                 array(
                     'attr' => array(
-                        'class' => 'form-control'
+                        'class' => 'form-control',
+                        'maxlength' => '55'
                     )
                 )
             )
@@ -74,7 +79,8 @@ class PurchaseType extends AbstractType
                 TextType::class,
                 array(
                     'attr' => array(
-                        'class' => 'form-control'
+                        'class' => 'form-control',
+                        'maxlength' => '55'
                     )
                 )
             )
@@ -83,7 +89,8 @@ class PurchaseType extends AbstractType
                 TextType::class,
                 array(
                     'attr' => array(
-                        'class' => 'form-control'
+                        'class' => 'form-control',
+                        'maxlength' => '10'
                     )
                 )
             );

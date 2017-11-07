@@ -12,7 +12,7 @@ class PurchaseController extends Controller
     public function showAction()
     {
         $repository = $this->getDoctrine()->getRepository('DefaultBundle:Purchase');
-        $listPurchase = $repository->findAll();
+        $listPurchase = $repository->findBy(array(), array('datePurchase' => 'DESC'));
         return $this->render('AdminBundle:Purchase:admin.purchase.html.twig', array(
             'listPurchase' => $listPurchase
         ));

@@ -1,11 +1,12 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
 <table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#FFFFFF" style="width:600px; font-family:Arial,sans-serif;margin: 0 auto;">
     <tr>
-        <td align="center" style="padding: 10px 0;"><a href="http://localhost/ihatesupreme/web/app_dev.php/" target="_blank" title="i hate supreme" style="color: white; background: black; text-decoration: none; padding: 2px;">i hate supreme.</a></td>
+        <td align="center" style="padding: 10px 0;"><a href="{{ path('admin_homepage') }}" target="_blank" title="i hate supreme" style="color: white; background: black; text-decoration: none; padding: 2px;">i hate supreme.</a></td>
     </tr>
     <tr>
         <td align="center" style="padding: 10px 0;">chouette une nouvelle commande !</td>
@@ -18,7 +19,7 @@
                 </tr>
                 {% for item in buyList %}
                     <tr>
-                        <td style="border-bottom:1px solid #E1E1E1;padding: 10px 0;"><img src="http://localhost/ihatesupreme/web/uploads/img/{{ item.keyImg }}.jpeg" alt="paris1" title="paris1" width="100" style="display:block;"></td>
+                        <td style="border-bottom:1px solid #E1E1E1;padding: 10px 0;"><img src="{{ asset('uploads/img/'~ item.keyImg ~'.jpeg') }}" alt="paris1" title="paris1" width="100" style="display:block;"></td>
                         <td style="border-bottom:1px solid #E1E1E1;padding: 10px 0;">{{ item.title }}</td>
                         <td style="border-bottom:1px solid #E1E1E1;padding: 10px 0;">{{ item.price }}€</td>
                     </tr>
@@ -30,7 +31,7 @@
         </td>
     </tr>
     <tr>
-        <td align="center" style="padding: 10px 0;">allez voir sa commande <a href="http://localhost/ihatesupreme/web/app_dev.php/ihateadmin/purchase" target="_blank" title="i hate admin" style="color: white; background: black; text-decoration: none; padding: 2px;">i hate admin.</a></td>
+        <td align="center" style="padding: 10px 0;">allez voir sa commande <a href="{{ path('admin_purchase') }}" target="_blank" title="i hate admin" style="color: white; background: black; text-decoration: none; padding: 2px;">i hate admin.</a></td>
     </tr>
     <tr>
         <td align="center" style="padding: 10px 0;">i love him.</td>

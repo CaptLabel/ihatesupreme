@@ -1,4 +1,5 @@
 {% extends "DefaultBundle::layout.html.twig" %}
+{% block title %}photo{% endblock %}
 {% block titlepage %}
     <a href="{{ path('default_ihateedito', {'id': photo.serie.id}) }}">{{ photo.serie.name }}.</a>
 {% endblock %}

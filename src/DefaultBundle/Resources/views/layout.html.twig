@@ -6,7 +6,7 @@
 
     <meta charset="utf-8">
 
-    <title>{% block title %}i hate{% endblock %}</title>
+    <title>i hate {% block title %}{% endblock %}</title>
 
     <link href="{{ asset('css/libs/fonts.css') }}" rel="stylesheet"/>
     <link href="{{ asset('css/libs/skeleton/normalize.css') }}" rel="stylesheet"/>
@@ -20,8 +20,6 @@
             <a href="{{ path('default_homepage') }}">i hate supreme</a>
         </div>
     </div>
-
-
 
     <div id="{% if id_body is defined %}{{ id_body }}{% else %}body{% endif %}" class="row">
         <div class="u-full-width a-c title-line">
