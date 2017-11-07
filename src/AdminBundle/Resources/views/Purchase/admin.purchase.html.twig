@@ -11,7 +11,7 @@
             </tr>
         {% else %}
             {% for purchase in listPurchase %}
-            <tr class="ui_row_filtre" ui-filtre-type="{{ purchase.status.state|replace({' ': '_'}) }}">
+            <tr class="ui_row_filtre" {% if purchase.status is not null %}ui-filtre-type="{{ purchase.status.state|replace({' ': '_'}) }}"{% endif %}>
                 <td style="border: 0; padding: 0;">
                     <table cellpadding="0" cellspacing="0" style="padding: 0; margin: 0; border: 0;" class="u-full-width">
                         <tr class="line-entete">
@@ -64,7 +64,7 @@
                         </tr>
                         <tr>
                             <td><b>statut</b></td>
-                            <td>{{ purchase.status.state }}</td>
+                            <td>{% if purchase.status is not null %}{{ purchase.status.state }}{% else %}/{% endif %}</td>
                             <td colspan="7"><a href="{{ path('admin_purchase_update', {'id': purchase.id}) }}">U</a></td>
                         </tr>
                     </table>
