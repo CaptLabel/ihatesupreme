@@ -27,9 +27,6 @@ class DefaultController extends Controller
                 $key = array_rand($introductions,1);
                 $intro = $introductions[$key];
             }
-
-
-
         }
         return $this->render('DefaultBundle:Default:index.html.twig', array('intro' => $intro));
     }
@@ -75,11 +72,7 @@ class DefaultController extends Controller
         if($this->get('kernel')->getEnvironment() === "dev" && $request->get('test') === "1"){
             $purchase = $this->get('test.manager')->testPurchase($purchase);
         }
-
-        dump($purchase);
-
         $form = $this->createForm(PurchaseType::class, $purchase);
-
         $purchase_form = $request->request->get('defaultbundle_purchase');
         $purchase_list = $purchase_form['purchase_list'];
         if ($form->handleRequest($request)->isValid() && !empty($purchase_list)) {

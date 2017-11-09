@@ -22,7 +22,7 @@
                 </tr>
                 {% for item in buyList %}
                 <tr>
-                    <td style="border-bottom:1px solid #E1E1E1;padding: 10px 0;"><img src="http://ihatesupreme.com/uploads/img/{{ item.keyImg }}.jpeg" alt="paris1" title="paris1" width="100" style="display:block;"></td>
+                    <td style="border-bottom:1px solid #E1E1E1;padding: 10px 0;"><img src="http://ihatesupreme.com/uploads/img/{{ item.keyImg }}.{{ item.ext }}" alt="{{ item.title }}" title="{{ item.title }}" width="100" style="display:block;"></td>
                     <td style="border-bottom:1px solid #E1E1E1;padding: 10px 0;">{{ item.title }}</td>
                     <td style="border-bottom:1px solid #E1E1E1;padding: 10px 0;">{{ item.price }}€</td>
                 </tr>
