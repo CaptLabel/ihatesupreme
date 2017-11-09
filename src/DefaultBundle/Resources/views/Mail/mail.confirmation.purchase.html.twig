@@ -6,7 +6,7 @@
 <body>
 <table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#FFFFFF" style="width:600px; font-family:Arial,sans-serif;margin: 0 auto;">
     <tr>
-        <td align="center" style="padding: 10px 0;"><a href="{{ path('homepage') }}" target="_blank" title="i hate supreme" style="color: white; background: black; text-decoration: none; padding: 2px;">i hate supreme.</a></td>
+        <td align="center" style="padding: 10px 0;"><a href="http://ihatesupreme.com/" target="_blank" title="i hate supreme" style="color: white; background: black; text-decoration: none; padding: 2px;">i hate supreme.</a></td>
     </tr>
     <tr>
         <td align="center" style="padding: 10px 0;">bonjour {{ purchase.lastname }} {{ purchase.firstname }}.</td>
@@ -22,7 +22,7 @@
                 </tr>
                 {% for item in buyList %}
                 <tr>
-                    <td style="border-bottom:1px solid #E1E1E1;padding: 10px 0;"><img src="{{ asset('uploads/img/'~ item.keyImg ~'.jpeg') }}" alt="paris1" title="paris1" width="100" style="display:block;"></td>
+                    <td style="border-bottom:1px solid #E1E1E1;padding: 10px 0;"><img src="http://ihatesupreme.com/uploads/img/{{ item.keyImg }}.jpeg" alt="paris1" title="paris1" width="100" style="display:block;"></td>
                     <td style="border-bottom:1px solid #E1E1E1;padding: 10px 0;">{{ item.title }}</td>
                     <td style="border-bottom:1px solid #E1E1E1;padding: 10px 0;">{{ item.price }}€</td>
                 </tr>

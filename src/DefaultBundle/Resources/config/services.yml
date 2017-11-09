@@ -10,3 +10,7 @@ services:
         class:  DefaultBundle\Service\PanierManager
         public: true
         arguments: ['@doctrine.orm.entity_manager']
+    test.manager:
+        class:  DefaultBundle\Service\TestManager
+        public: true
+        arguments: ['@doctrine.orm.entity_manager']

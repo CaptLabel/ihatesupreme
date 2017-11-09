@@ -4,6 +4,7 @@ namespace DefaultBundle\Controller;
 
 use DefaultBundle\Entity\Freedom;
 use DefaultBundle\Entity\Purchase;
+use DefaultBundle\Entity\PurchaseTest;
 use DefaultBundle\Form\FreedomType;
 use DefaultBundle\Form\PurchaseType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -71,12 +72,19 @@ class DefaultController extends Controller
         $panier = $session->get('panier');
         $this->get('purchase.manager')->setPanier($panier);
         $purchase = new Purchase();
+        if($this->get('kernel')->getEnvironment() === "dev" && $request->get('test') === "1"){
+            $purchase = $this->get('test.manager')->testPurchase($purchase);
+        }
+
+        dump($purchase);
+
         $form = $this->createForm(PurchaseType::class, $purchase);
+
         $purchase_form = $request->request->get('defaultbundle_purchase');
         $purchase_list = $purchase_form['purchase_list'];
         if ($form->handleRequest($request)->isValid() && !empty($purchase_list)) {
             $session->remove('panier');
-            $this->get('purchase.manager')->purchaseAction($purchase, $purchase_list);
+            $this->get('purchase.manager')->purchaseAction($purchase, $purchase_list, $request->get('amount'));
             return $this->redirectToRoute('default_ihatepurchase_conf');
         }
         return $this->render('DefaultBundle:Default:ihatepurchase.html.twig', array(

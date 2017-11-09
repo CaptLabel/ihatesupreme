@@ -395,7 +395,6 @@ class Purchase
      */
     public function preUpload()
     {
-        //TODO GET AMOUNT
         $this->datePurchase = new \DateTime('now');
     }
 }

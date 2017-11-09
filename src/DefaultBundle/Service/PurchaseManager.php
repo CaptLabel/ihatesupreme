@@ -46,7 +46,7 @@ class PurchaseManager
         $this->panier = $panier;
     }
 
-    public function purchaseAction(Purchase $purchase, $purchase_list){
+    public function purchaseAction(Purchase $purchase, $purchase_list, $amount){
 
         $purchase_list = explode(',', $purchase_list);
 
@@ -60,13 +60,8 @@ class PurchaseManager
         }
         if(count($buyList) > 0){
             $purchase->setBuyList(json_encode($buyList));
+            $purchase->setAmount($amount);
         }
-
-
-        //TODO VIRER CA.... SET EN BASE AUTO
-//        $amount = $request->get('amount');
-        $amount = 100;
-        $purchase->setAmount($amount);
 
         $this->sendMailPurchaseClient($purchase, $buyList, $amount);
         $this->sendMailPurchaseAdmin($purchase, $buyList, $amount);
