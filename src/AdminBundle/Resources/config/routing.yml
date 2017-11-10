@@ -8,7 +8,13 @@ admin_freedom:
 
 admin_serie:
     path:     /ihateadmin/serie
+    defaults: { _controller: AdminBundle:Serie:index }
+
+admin_serie_show:
+    path:     /ihateadmin/serie/{id}
     defaults: { _controller: AdminBundle:Serie:show }
+    requirements:
+            id:   \d+
 
 admin_serie_add:
     path:     /ihateadmin/serie/add/
@@ -28,7 +34,13 @@ admin_serie_remove:
 
 admin_photo:
     path:     /ihateadmin/photo
+    defaults: { _controller: AdminBundle:Photo:index }
+
+admin_photo_show:
+    path:     /ihateadmin/photo/{id}
     defaults: { _controller: AdminBundle:Photo:show }
+    requirements:
+            id:   \d+
 
 admin_photo_add:
     path:     /ihateadmin/photo/add
@@ -48,7 +60,13 @@ admin_photo_remove:
 
 admin_purchase:
     path: /ihateadmin/purchase
+    defaults: { _controller: AdminBundle:Purchase:index }
+
+admin_purchase_show:
+    path: /ihateadmin/purchase/{id}
     defaults: { _controller: AdminBundle:Purchase:show }
+    requirements:
+            id:   \d+
 
 admin_purchase_update:
     path: /ihateadmin/purchase/update/{id}
@@ -59,6 +77,8 @@ admin_purchase_update:
 admin_introduction:
     path: /ihateadmin/introduction
     defaults: { _controller: AdminBundle:Intro:show }
+    requirements:
+            id:   \d+
 
 admin_introduction_add:
     path: /ihateadmin/introduction/add
@@ -79,6 +99,8 @@ admin_introduction_remove:
 admin_status:
     path: /ihateadmin/status
     defaults: { _controller: AdminBundle:Status:show }
+    requirements:
+            id:   \d+
 
 admin_status_add:
     path: /ihateadmin/status/add
@@ -99,6 +121,8 @@ admin_status_remove:
 admin_loveyou:
     path: /ihateadmin/loveyou
     defaults: { _controller: AdminBundle:Loveyou:show}
+    requirements:
+            id:   \d+
 
 admin_loveyou_add:
     path: /ihateadmin/loveyou/add

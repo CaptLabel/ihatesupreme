@@ -11,13 +11,23 @@ use Symfony\Component\HttpFoundation\Request;
 
 class PhotoController extends Controller
 {
-    public function showAction()
+    public function indexAction()
     {
         $repository = $this->getDoctrine()->getManager()->getRepository('DefaultBundle:Photo');
         $listPhoto = $repository->findAll();
 
         return $this->render('AdminBundle:Photo:admin.photo.html.twig', array(
             'listPhoto' => $listPhoto
+        ));
+    }
+
+    public function showAction($id)
+    {
+        $repository = $this->getDoctrine()->getManager()->getRepository('DefaultBundle:Photo');
+        $photo = $repository->find($id);
+
+        return $this->render('AdminBundle:Photo:admin.show.photo.html.twig', array(
+            'photo' => $photo
         ));
     }
 

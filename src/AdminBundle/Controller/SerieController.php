@@ -10,12 +10,21 @@ use Symfony\Component\HttpFoundation\Request;
 
 class SerieController extends Controller
 {
-    public function showAction()
+    public function indexAction()
     {
         $repository = $this->getDoctrine()->getManager()->getRepository('DefaultBundle:Serie');
         $listSerie = $repository->findAll();
         return $this->render('AdminBundle:Serie:admin.serie.html.twig', array(
             'listSerie' => $listSerie
+        ));
+    }
+
+    public function showAction($id)
+    {
+        $repository = $this->getDoctrine()->getManager()->getRepository('DefaultBundle:Serie');
+        $serie = $repository->find($id);
+        return $this->render('AdminBundle:Serie:admin.show.serie.html.twig', array(
+            'serie' => $serie
         ));
     }
 

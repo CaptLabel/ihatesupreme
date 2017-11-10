@@ -1,0 +1,30 @@
+{% extends "@Admin/admin.layout.html.twig" %}
+{% block body %}
+    <a href="{{ path('admin_serie') }}" style="margin-bottom: 20px;">retour à la liste</a>
+    <table class="u-full-width">
+        <tbody>
+            <tr class="line-entete"><th colspan="2">informations</th></tr>
+            <tr>
+                <td>name</td>
+                <td>{{ serie.name }}</td>
+            </tr>
+            <tr>
+                <td>ville</td>
+                <td>{{ serie.ville }}</td>
+            </tr>
+            <tr class="line-entete"><th colspan="2">goings</th></tr>
+            {% for going in serie.goings %}
+            <tr>
+                <td><a href="{{ going.link }}" target="_blank">{{ going.title }}</a></td>
+                <td>{{ going.adress }}</td>
+            </tr>
+            {% endfor %}
+            <tr class="line-entete"><th colspan="2">edito</th></tr>
+            <tr><td colspan="2">{{ serie.edito.text }}</td></tr>
+            <tr>
+                <td class="a-c"><a href="{{ path('admin_serie_update', {'id': serie.id}) }}">modifier</a></td>
+                <td class="a-c"><a href="{{ path('admin_serie_remove', {'id': serie.id}) }}">supprimer</a></td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

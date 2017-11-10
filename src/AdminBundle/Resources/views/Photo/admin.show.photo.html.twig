@@ -1,0 +1,41 @@
+{% extends "@Admin/admin.layout.html.twig" %}
+{% block body %}
+    <a href="{{ path('admin_photo') }}" style="margin-bottom: 20px;">retour à la liste</a>
+    <table class="u-full-width">
+        <tbody>
+            <tr class="line-entete">
+                <th colspan="2">information</th>
+            </tr>
+            <tr>
+                <td colspan="2" class="a-c"><img width="200" src="{{ asset(photo.webPath) }}" alt="{{ photo.name }}"
+                         title="{{ photo.name }}"/></td>
+            </tr>
+            <tr>
+                <td>titre</td>
+                <td>{{ photo.title }}</td>
+            </tr>
+            <tr>
+                <th>serie</th>
+                <td>{{ photo.serie.name }}</td>
+            </tr>
+            <tr>
+                <th>price</th>
+                <td>{{ photo.price }} €</td>
+            </tr>
+            <tr>
+                <th>name</th>
+                <td>{{ photo.name }}</td>
+            </tr>
+            <tr class="line-entete">
+                <th colspan="2">description</th>
+            </tr>
+            <tr>
+                <td colspan="2">{{ photo.description }}</td>
+            </tr>
+            <tr>
+                <td class="a-c"><a href="{{ path('admin_photo_update', {'id': photo.id}) }}">modifier</a></td>
+                <td class="a-c"><a href="{{ path('admin_photo_remove', {'id': photo.id}) }}">supprimer</a></td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

@@ -9,12 +9,21 @@ use Symfony\Component\HttpFoundation\Request;
 
 class PurchaseController extends Controller
 {
-    public function showAction()
+    public function indexAction()
     {
         $repository = $this->getDoctrine()->getRepository('DefaultBundle:Purchase');
         $listPurchase = $repository->findBy(array(), array('datePurchase' => 'DESC'));
         return $this->render('AdminBundle:Purchase:admin.purchase.html.twig', array(
             'listPurchase' => $listPurchase
+        ));
+    }
+
+    public function showAction($id)
+    {
+        $repository = $this->getDoctrine()->getRepository('DefaultBundle:Purchase');
+        $purchase = $repository->find($id);
+        return $this->render('AdminBundle:Purchase:admin.show.purchase.html.twig', array(
+            'purchase' => $purchase
         ));
     }
 

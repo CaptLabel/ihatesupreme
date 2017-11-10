@@ -23,7 +23,9 @@ class DefaultController extends Controller
             $response = new Response();
             $response->headers->setCookie(new Cookie('intro', '1', strtotime('now + 1 day')));
             $response->send();
-            if(!isset($introductions)){
+            //todo Retirer cette logique du controller
+            //todo !!! cassé en PROD !!!!
+            if(isset($introductions)){
                 $key = array_rand($introductions,1);
                 $intro = $introductions[$key];
             }

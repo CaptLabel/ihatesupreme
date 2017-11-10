@@ -1,0 +1,47 @@
+{% extends "@Admin/admin.layout.html.twig" %}
+{% block body %}
+    <a href="{{ path('admin_purchase') }}" style="margin-bottom: 20px;">retour à la liste</a>
+    <table class="u-full-width">
+        <tbody>
+            <tr class="line-entete"><th colspan="2">information</th></tr>
+            <tr><td>nom</td><td>{{ purchase.lastname }}</td></tr>
+            <tr><td>prenom</td><td>{{ purchase.firstname }}</td></tr>
+            <tr><td>email</td><td>{{ purchase.email }}</td></tr>
+            <tr><td>adresse</td><td>{{ purchase.adress }}</td></tr>
+            <tr><td>code postal</td><td>{{ purchase.zipCode }}</td></tr>
+            <tr><td>ville</td><td>{{ purchase.city }}</td></tr>
+            <tr><td>numéro</td><td>{{ purchase.number }}</td></tr>
+            <tr><td>date commande</td><td>{{ purchase.datePurcahse.format('d/m/Y H:i') }}</td></tr>
+            <tr>
+                <td style="border: 0; padding: 0;" colspan="2">
+                    <table cellpadding="0" cellspacing="0" style="padding: 0; margin: 0; border: 0;" class="u-full-width">
+                        <thead>
+                            <tr class="line-entete"><th colspan="2">commande</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>titre</th>
+                                <th>price</th>
+                            </tr>
+                            {% for item in purchase.buyList|json_decode %}
+                                <tr>
+                                    <td>{{ item.title }}</td>
+                                    <td>{{ item.price }} €</td>
+                                </tr>
+                            {% endfor %}
+                            <tr>
+                                <td class="a-r">total : </td>
+                                <td>{{ purchase.amount }} €</td>
+                            </tr>
+                            <tr class="line-entete"><th colspan="2">statut</th></tr>
+                            <tr>
+                                <td>{% if purchase.status is not null %}{{ purchase.status.state }}{% else %}/{% endif %}</td>
+                                <td><a href="{{ path('admin_purchase_update', {'id': purchase.id}) }}">modifier</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
